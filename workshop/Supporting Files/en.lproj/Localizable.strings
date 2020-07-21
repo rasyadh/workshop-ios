@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  workshop
+
+  Created by Twiscode on 21/07/20.
+  Copyright © 2020 rasyadh. All rights reserved.
+*/
+
+// MARK: - App
+"app.name" = "WorkshopApp";
+"app.version" = "Version";
+
+// MARK: - Field Validation
+"field_validation.invalid.title" = "Invalid Form";
+"field_validation.invalid.message.name_empty" = "Name cannot be empty";
+"field_validation.invalid.message.email_empty" = "Email cannot be empty";
+"field_validation.invalid.message.email_invalid" = "Invalid email format";
+"field_validation.invalid.message.password_empty" = "Password cannot be empty";
+"field_validation.invalid.message.password_length" = "Password must be at least 6 characters";
+"field_validation.invalid.message.password_confirmation_empty" = "Password Confirmation cannot be empty";
+"field_validation.invalid.message.password_confirmation_match" = "Password Confirmation not match";
+"field_validation.invalid.message.phone_number_empty" = "Phone number cannot be empty";
+
+// MARK: - Messages Loading, Success, and Failure
+"messages.success" = "Success";
+"messages.success.login" = "Login Success";
+
+"messages.loading.login" = "Logging In";
+"messages.loading.logout" = "Logging Out";
+"messages.loading.update" = "Updating";
+
+"messages.failed.login.title" = "Login Failed";
+"messages.failed.logout.title" = "Logout Failed";
+"messages.failed.login.message" = "Wrong email or password";
+"messages.failed.default.title" = "Oops...";
+"messages.failed.default.message" = "Please check your internet connection or try again later";
+"messages.failed.default.message_try" = "Please try again";
+"messages.failed.expired.title" = "Your session has expired";
+"messages.failed.expired.message" = "Please login to your account";
+
+// MARK: - Alertify
+"alertify.ok" = "OK";
+"alertify.cancel" = "Cancel";
+
+// MARK: - Alert Action
+"alert.title.camera" = "Camera";
+"alert.title.photos" = "Photos Library";
+
+// MARK: - Toolbar
+"toolbar.done" = "Done";
+"toolbar.cancel" = "Cancel";

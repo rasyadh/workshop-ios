@@ -1,0 +1,46 @@
+PODS:
+  - Alamofire (5.1.0)
+  - Hue (5.0.0)
+  - IQKeyboardManagerSwift (6.5.5)
+  - Kingfisher (5.13.4):
+    - Kingfisher/Core (= 5.13.4)
+  - Kingfisher/Core (5.13.4)
+  - Repeat (0.6.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftyJSON (5.0.0)
+  - TOCropViewController (2.5.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - Hue
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - Repeat
+  - SVProgressHUD
+  - SwiftyJSON
+  - TOCropViewController
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Hue
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - Repeat
+    - SVProgressHUD
+    - SwiftyJSON
+    - TOCropViewController
+
+SPEC CHECKSUMS:
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
+  Repeat: fd80848f4b3d6f133b18fdee04fd193aff6b31ff
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  TOCropViewController: e9da34f484aedd4e5d5a8ab230ba217cfe16c729
+
+PODFILE CHECKSUM: 77c844ef1274c90e895bf032fd55b8e723d5e0be
+
+COCOAPODS: 1.9.3
