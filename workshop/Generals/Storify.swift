@@ -53,6 +53,11 @@ class Storify: NSObject {
         pref.set(token, forKey: Preferences.tokenLogin)
     }
     
+    func loginUser() {
+        let pref = UserDefaults.standard
+        pref.set(true, forKey: Preferences.isLoggedIn)
+    }
+    
     func logoutUser() {
         let pref = UserDefaults.standard
         pref.set(false, forKey: Preferences.isLoggedIn)

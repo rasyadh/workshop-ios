@@ -32,7 +32,8 @@ class ForgotPasswordViewController: UIViewController {
     @IBAction func forgotPasswordTouchUpInside(_ sender: Any) {
         if validateField() {
             SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success"))
-            SVProgressHUD.dismiss(withDelay: 1.0) {
+            SVProgressHUD.dismiss(withDelay: 1.0) { [weak self] in
+                guard let self = self else { return }
                 // pop view controller from the stack
                 self.navigationController?.popViewController(animated: true)
             }

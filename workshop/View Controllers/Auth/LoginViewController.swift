@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -51,10 +52,12 @@ class LoginViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func signInTouchUpInside(_ sender: Any) {
         if validateField() {
-            Alertify.displayAlert(
-                title: Localify.get("messages.success"),
-                message: Localify.get("messages.success.login"),
-                sender: self)
+            SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success.login"))
+            SVProgressHUD.dismiss(withDelay: 1.0) { [weak self] in
+                guard let self = self else { return }
+                Storify.shared.loginUser()
+                self.managerViewController?.showHomeScreen()
+            }
         }
     }
     

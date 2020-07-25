@@ -73,3 +73,8 @@
 "forgot_password.subtitle" = "We will send the reset link to reset your password.";
 "forgot_password.field.email.placeholder" = "Email";
 "forgot_password.button.forgot" = "Forgot Password";
+
+// MARK: - Home
+"home.title" = "Home";
+"home.alert.signout.title" = "Sign Out";
+"home.alert.signout.message" = "Are you sure want to sign out?";

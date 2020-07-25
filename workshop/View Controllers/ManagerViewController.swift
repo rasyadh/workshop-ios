@@ -13,6 +13,7 @@ public class ManagerViewController: UIViewController {
     // MARK: - Variables
     // Storyboards variable
     private var authStoryboard: UIStoryboard?
+    private var homeStoryboard: UIStoryboard?
     
     private var cachedViewController = [String: UIViewController]()
     private var activeViewControllerId = ""
@@ -66,6 +67,11 @@ public class ManagerViewController: UIViewController {
                 authStoryboard = UIStoryboard(name: "Auth", bundle: nil)
             }
             viewController = authStoryboard?.instantiateInitialViewController()
+        } else if identifier == CHILD_HOME_KEY {
+            if homeStoryboard == nil {
+                homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+            }
+            viewController = homeStoryboard?.instantiateInitialViewController()
         } else if let vendorTabViewController = storyboard?.instantiateViewController(withIdentifier: identifier) {
             cachedViewController[identifier] = vendorTabViewController
             viewController = vendorTabViewController

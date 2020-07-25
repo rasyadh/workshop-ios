@@ -43,10 +43,11 @@ class RegisterViewController: UIViewController {
         if validateField() {
             SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success.register"))
             SVProgressHUD.dismiss(withDelay: 1.0) { [weak self] in
+                guard let self = self else { return }
                 // pass data back to parent view controller with delegation pattern
-                self?.delegate?.onRegister(self?.emailField.text ?? "")
+                self.delegate?.onRegister(self.emailField.text ?? "")
                 // pop view controller from the stack
-                self?.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
