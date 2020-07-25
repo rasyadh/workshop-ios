@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // add button item in navigation bar
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: Localify.get("login.bar_button_item.forgot"),
             style: .plain,
@@ -36,7 +35,6 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // pass data with segue
         if segue.identifier == "showForgotPassword" {
             let forgotPasswordViewController = segue.destination as! ForgotPasswordViewController
             forgotPasswordViewController.email = "mobile@twiscode.com"
@@ -45,7 +43,6 @@ class LoginViewController: UIViewController {
     
     // MARK: - Selector
     @objc func forgotTouchUpInside(_ sender: UIBarButtonItem) {
-        // push view controller with segue
         performSegue(withIdentifier: "showForgotPassword", sender: self)
     }
     
@@ -62,12 +59,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerTouchUpInside(_ sender: Any) {
-        // push view controller with navigation controller
         let registerViewController = UIStoryboard(name: "Auth", bundle: nil)
             .instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        // implement protocol of register delegate
         registerViewController.delegate = self
-        // pass data with navigation controller
         registerViewController.name = "Mobile iOS"
         registerViewController.email = "mobile@twiscoder.com"
         navigationController?.pushViewController(registerViewController, animated: true)

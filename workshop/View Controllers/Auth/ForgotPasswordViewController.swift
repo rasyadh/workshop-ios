@@ -34,7 +34,6 @@ class ForgotPasswordViewController: UIViewController {
             SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success"))
             SVProgressHUD.dismiss(withDelay: 1.0) { [weak self] in
                 guard let self = self else { return }
-                // pop view controller from the stack
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -50,7 +49,6 @@ class ForgotPasswordViewController: UIViewController {
         forgotPasswordButton.setBorderViewColor(UIColor.systemBlue)
         forgotPasswordButton.setRoundedCorner(cornerRadius: 8.0)
         
-        // set email to emailField if it's not nill
         guard email != nil else { return }
         emailField.text = email
     }
