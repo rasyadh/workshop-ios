@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -20,30 +21,60 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // add button item in navigation bar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: Localify.get("login.bar_button_item.forgot"),
+            style: .plain,
+            target: self,
+            action: #selector(forgotTouchUpInside(_:)))
 
-        // implement textField behaviour
         emailField.delegate = self
         passwordField.delegate = self
         
         subviewSettings()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // pass data with segue
+        if segue.identifier == "showForgotPassword" {
+            let forgotPasswordViewController = segue.destination as! ForgotPasswordViewController
+            forgotPasswordViewController.email = "mobile@twiscode.com"
+        }
+    }
+    
+    // MARK: - Selector
+    @objc func forgotTouchUpInside(_ sender: UIBarButtonItem) {
+        // push view controller with segue
+        performSegue(withIdentifier: "showForgotPassword", sender: self)
+    }
+    
     // MARK: - IBActions
     @IBAction func signInTouchUpInside(_ sender: Any) {
         if validateField() {
-            Alertify.displayAlert(
-                title: Localify.get("messages.success"),
-                message: Localify.get("messages.success.login"),
-                sender: self)
+            SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success.login"))
+            SVProgressHUD.dismiss(withDelay: 1.0) { [weak self] in
+                guard let self = self else { return }
+                Storify.shared.loginUser()
+                self.managerViewController?.showHomeScreen()
+            }
         }
     }
     
     @IBAction func registerTouchUpInside(_ sender: Any) {
+        // push view controller with navigation controller
+        let registerViewController = UIStoryboard(name: "Auth", bundle: nil)
+            .instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        // implement protocol of register delegate
+        registerViewController.delegate = self
+        // pass data with navigation controller
+        registerViewController.name = "Mobile iOS"
+        registerViewController.email = "mobile@twiscoder.com"
+        navigationController?.pushViewController(registerViewController, animated: true)
     }
     
     // MARK: - Functions
     private func subviewSettings() {
-        // get localify strings from Localizable.strings
         titleLabel.text = Localify.get("login.title")
         subtitleLabel.text = Localify.get("login.subtitle")
         emailField.placeholder = Localify.get("login.field.email.placeholder")
@@ -93,5 +124,12 @@ extension LoginViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+// MARK: - Register Delegate
+extension LoginViewController: RegisterDelegate {
+    func onRegister(_ email: String) {
+        emailField.text = email
     }
 }

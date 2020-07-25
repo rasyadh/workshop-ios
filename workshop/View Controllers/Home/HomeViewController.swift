@@ -13,18 +13,24 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.title = Localify.get("home.title")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .stop,
+            target: self,
+            action: #selector(signOutTouchUpInside(_:)))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Selector
+    @objc func signOutTouchUpInside(_ sender: UIBarButtonItem) {
+        Alertify.displayConfirmationDialog(
+            title: Localify.get("home.alert.signout.title"),
+            message: Localify.get("home.alert.signout.message"),
+            confirmTitle: Localify.get("alertify.ok"),
+            sender: self,
+            isDestructive: true) { [weak self] in
+                guard let self = self else { return }
+                Storify.shared.logoutUser()
+                self.managerViewController?.showLoginScreen(isFromLogout: true)
+        }
     }
-    */
-
 }
