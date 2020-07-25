@@ -17,6 +17,19 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
+    // MARK: - Variable
+    var movie: Movie! {
+        didSet {
+            guard let movie = movie else { return }
+            
+            imageContent.kf.indicatorType = .activity
+            imageContent.kf.setImage(with: URL(string: movie.posterPath))
+            titleLabel.text = movie.title
+            dateLabel.text = movie.releaseDate.toString(format: "dd MMMM yyyy")
+            overviewLabel.text = movie.overview
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -103,12 +103,7 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "MovieTableCell", for: indexPath) as! MovieTableViewCell
         
-        let movie = movies[indexPath.row]
-        cell.titleLabel.text = movie.title
-        cell.dateLabel.text = movie.releaseDate.toString(format: "dd MMMM yyyy")
-        cell.overviewLabel.text = movie.overview
-        cell.imageContent.kf.indicatorType = .activity
-        cell.imageContent.kf.setImage(with: URL(string: movie.posterPath))
+        cell.movie = movies[indexPath.row]
         cell.selectionStyle = .none
         
         return cell
