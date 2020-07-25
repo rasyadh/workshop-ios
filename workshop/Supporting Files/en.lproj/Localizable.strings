@@ -49,3 +49,11 @@
 // MARK: - Toolbar
 "toolbar.done" = "Done";
 "toolbar.cancel" = "Cancel";
+
+// MARK: - Login
+"login.title" = "Workshop";
+"login.subtitle" = "Sign in to continue.";
+"login.field.email.placeholder" = "Email";
+"login.field.password.placeholder" = "Password";
+"login.button.signin" = "Sign In";
+"login.button.register" = "Register";
