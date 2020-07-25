@@ -9,6 +9,10 @@
 import UIKit
 import SVProgressHUD
 
+protocol RegisterDelegate {
+    func onRegister(_ email: String)
+}
+
 class RegisterViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -20,6 +24,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     // MARK: - Variables
+    var delegate: RegisterDelegate?
     var name: String!
     var email: String!
     
@@ -37,9 +42,11 @@ class RegisterViewController: UIViewController {
     @IBAction func registerTouchUpInside(_ sender: Any) {
         if validateField() {
             SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success.register"))
-            SVProgressHUD.dismiss(withDelay: 1.0) {
+            SVProgressHUD.dismiss(withDelay: 1.0) { [weak self] in
+                // pass data back to parent view controller with delegation pattern
+                self?.delegate?.onRegister(self?.emailField.text ?? "")
                 // pop view controller from the stack
-                self.navigationController?.popViewController(animated: true)
+                self?.navigationController?.popViewController(animated: true)
             }
         }
     }

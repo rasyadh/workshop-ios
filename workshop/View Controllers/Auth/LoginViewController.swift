@@ -62,6 +62,8 @@ class LoginViewController: UIViewController {
         // push view controller with navigation controller
         let registerViewController = UIStoryboard(name: "Auth", bundle: nil)
             .instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        // implement protocol of register delegate
+        registerViewController.delegate = self
         // pass data with navigation controller
         registerViewController.name = "Mobile iOS"
         registerViewController.email = "mobile@twiscoder.com"
@@ -119,5 +121,12 @@ extension LoginViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+// MARK: - Register Delegate
+extension LoginViewController: RegisterDelegate {
+    func onRegister(_ email: String) {
+        emailField.text = email
     }
 }
