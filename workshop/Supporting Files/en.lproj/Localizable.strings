@@ -75,6 +75,6 @@
 "forgot_password.button.forgot" = "Forgot Password";
 
 // MARK: - Home
-"home.title" = "Home";
+"home.title" = "Movie Catalog";
 "home.alert.signout.title" = "Sign Out";
 "home.alert.signout.message" = "Are you sure want to sign out?";

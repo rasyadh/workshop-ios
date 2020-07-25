@@ -44,9 +44,7 @@ class RegisterViewController: UIViewController {
             SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success.register"))
             SVProgressHUD.dismiss(withDelay: 1.0) { [weak self] in
                 guard let self = self else { return }
-                // pass data back to parent view controller with delegation pattern
                 self.delegate?.onRegister(self.emailField.text ?? "")
-                // pop view controller from the stack
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -64,7 +62,6 @@ class RegisterViewController: UIViewController {
         registerButton.setBorderViewColor(UIColor.systemBlue)
         registerButton.setRoundedCorner(cornerRadius: 8.0)
         
-        // set name and email if it's not nill
         if let name = self.name {
             nameField.text = name
         }
