@@ -140,6 +140,12 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: - UITableView Delegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            Alertify.displayAlert(
+                title: movies[indexPath.row].title,
+                message: "",
+                sender: self)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
