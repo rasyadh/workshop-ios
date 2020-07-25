@@ -35,6 +35,8 @@
 		24B5D9ED24CBCA31008E2AEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D9EC24CBCA31008E2AEB /* RegisterViewController.swift */; };
 		24B5D9EF24CBCA83008E2AEB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D9EE24CBCA83008E2AEB /* ForgotPasswordViewController.swift */; };
 		24B5D9F224CBDF20008E2AEB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D9F124CBDF20008E2AEB /* Movie.swift */; };
+		24B5D9F624CBE407008E2AEB /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D9F424CBE407008E2AEB /* MovieTableViewCell.swift */; };
+		24B5D9F724CBE407008E2AEB /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B5D9F524CBE407008E2AEB /* MovieTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		24B5D9EC24CBCA31008E2AEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		24B5D9EE24CBCA83008E2AEB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		24B5D9F124CBDF20008E2AEB /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		24B5D9F424CBE407008E2AEB /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		24B5D9F524CBE407008E2AEB /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		2F592FB1E103BD944EEC8A41 /* Pods_workshop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workshop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5CAF5F09225B1AC50D4DBAC /* Pods-workshop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workshop.debug.xcconfig"; path = "Target Support Files/Pods-workshop/Pods-workshop.debug.xcconfig"; sourceTree = "<group>"; };
 		F8DE7C9A92088AADD8EC0ED4 /* Pods-workshop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workshop.release.xcconfig"; path = "Target Support Files/Pods-workshop/Pods-workshop.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +129,7 @@
 				240DE79124C6EC5200FCA57B /* Classes */,
 				240DE79224C6EC5800FCA57B /* Storyboards */,
 				240DE79324C6EC6200FCA57B /* View Controllers */,
-				240DE79424C6EC7100FCA57B /* Xibs */,
+				24B5D9F324CBE3F1008E2AEB /* Xibs */,
 				240DE78E24C6EC3000FCA57B /* Supporting Files */,
 			);
 			path = workshop;
@@ -197,13 +201,6 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		240DE79424C6EC7100FCA57B /* Xibs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Xibs;
-			sourceTree = "<group>";
-		};
 		240DE7C324C6EFB300FCA57B /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +225,15 @@
 				24B5D9F124CBDF20008E2AEB /* Movie.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		24B5D9F324CBE3F1008E2AEB /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				24B5D9F424CBE407008E2AEB /* MovieTableViewCell.swift */,
+				24B5D9F524CBE407008E2AEB /* MovieTableViewCell.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		96A4B772D52E061BBEC3792B /* Frameworks */ = {
@@ -299,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				240DE78724C6E8F400FCA57B /* LaunchScreen.storyboard in Resources */,
+				24B5D9F724CBE407008E2AEB /* MovieTableViewCell.xib in Resources */,
 				240DE79724C6ECF100FCA57B /* Localizable.strings in Resources */,
 				240DE7BE24C6EFAD00FCA57B /* Auth.storyboard in Resources */,
 				240DE7C824C6F02500FCA57B /* Home.storyboard in Resources */,
@@ -376,6 +383,7 @@
 				24B5D9EF24CBCA83008E2AEB /* ForgotPasswordViewController.swift in Sources */,
 				240DE7AD24C6EE1A00FCA57B /* UIViewExtensions.swift in Sources */,
 				240DE7A324C6ED9D00FCA57B /* UIColorExtensions.swift in Sources */,
+				24B5D9F624CBE407008E2AEB /* MovieTableViewCell.swift in Sources */,
 				240DE7B924C6EF2E00FCA57B /* CameraMediaPickerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

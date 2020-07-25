@@ -31,8 +31,13 @@ class HomeViewController: UIViewController {
             target: self,
             action: #selector(signOutTouchUpInside(_:)))
         
+        // register xib file for cell table view
+        tableView.register(
+            UINib(nibName: "MovieTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "MovieTableCell")
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.contentInset = UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0)
         
         // populate dummy data
         initData()
@@ -90,11 +95,21 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-        // set cell component with the data
+        return createMovieCell(indexPath)
+    }
+    
+    func createMovieCell(_ indexPath: IndexPath) -> UITableViewCell {
+        // set table view reusable cell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "MovieTableCell", for: indexPath) as! MovieTableViewCell
+        
         let movie = movies[indexPath.row]
-        cell.textLabel?.text = movie.title
-        cell.detailTextLabel?.text = movie.overview
+        cell.titleLabel.text = movie.title
+        cell.dateLabel.text = movie.releaseDate.toString(format: "dd MMMM yyyy")
+        cell.overviewLabel.text = movie.overview
+        cell.imageContent.kf.indicatorType = .activity
+        cell.imageContent.kf.setImage(with: URL(string: movie.posterPath))
+        cell.selectionStyle = .none
         
         return cell
     }
