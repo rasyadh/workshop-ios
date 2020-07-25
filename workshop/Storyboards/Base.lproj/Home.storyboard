@@ -15,10 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="6qX-zC-6hD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-Ti-Vm8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sY0-Ti-Vm8" firstAttribute="top" secondItem="6uE-qo-GTt" secondAttribute="top" id="5hk-Zm-sbD"/>
+                            <constraint firstItem="sY0-Ti-Vm8" firstAttribute="trailing" secondItem="6uE-qo-GTt" secondAttribute="trailing" id="GVk-aT-jZP"/>
+                            <constraint firstItem="sY0-Ti-Vm8" firstAttribute="leading" secondItem="6uE-qo-GTt" secondAttribute="leading" id="HbL-Qa-61P"/>
+                            <constraint firstAttribute="bottom" secondItem="sY0-Ti-Vm8" secondAttribute="bottom" id="ppy-Ia-ZKI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6uE-qo-GTt"/>
                     </view>
                     <navigationItem key="navigationItem" id="N7b-ej-EDD"/>
+                    <connections>
+                        <outlet property="tableView" destination="sY0-Ti-Vm8" id="x9t-rm-wCY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nt2-SU-Osd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

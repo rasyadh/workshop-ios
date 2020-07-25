@@ -10,6 +10,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    // MARK: - IBOutlet
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +21,9 @@ class HomeViewController: UIViewController {
             barButtonSystemItem: .stop,
             target: self,
             action: #selector(signOutTouchUpInside(_:)))
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     // MARK: - Selector
@@ -32,5 +38,27 @@ class HomeViewController: UIViewController {
                 Storify.shared.logoutUser()
                 self.managerViewController?.showLoginScreen(isFromLogout: true)
         }
+    }
+}
+
+// MARK: - UITableView DataSource
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        cell.textLabel?.text = "Title \(indexPath.row)"
+        cell.detailTextLabel?.text = "Subtitle \(indexPath.row)"
+        
+        return cell
+    }
+}
+
+// MARK: - UITableView Delegate
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
