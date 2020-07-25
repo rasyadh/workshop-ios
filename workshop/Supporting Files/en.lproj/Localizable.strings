@@ -24,6 +24,7 @@
 // MARK: - Messages Loading, Success, and Failure
 "messages.success" = "Success";
 "messages.success.login" = "Login Success";
+"messages.success.register" = "Register Success";
 
 "messages.loading.login" = "Logging In";
 "messages.loading.logout" = "Logging Out";
@@ -57,3 +58,18 @@
 "login.field.password.placeholder" = "Password";
 "login.button.signin" = "Sign In";
 "login.button.register" = "Register";
+"login.bar_button_item.forgot" = "Forgot Password";
+
+// MARK: - Register
+"register.title" = "Workshop";
+"register.subtitle" = "Register to continue.";
+"register.field.name.placeholder" = "Name";
+"register.field.email.placeholder" = "Email";
+"register.field.password.placeholder" = "Password";
+"register.button.register" = "Register";
+
+// MARK: - Forgot Password
+"forgot_password.title" = "Workshop";
+"forgot_password.subtitle" = "We will send the reset link to reset your password.";
+"forgot_password.field.email.placeholder" = "Email";
+"forgot_password.button.forgot" = "Forgot Password";

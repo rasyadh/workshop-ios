@@ -1,78 +1,64 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  workshop
 //
-//  Created by Twiscode on 21/07/20.
+//  Created by Twiscode on 25/07/20.
 //  Copyright © 2020 rasyadh. All rights reserved.
 //
 
 import UIKit
+import SVProgressHUD
 
-class LoginViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // add button item in navigation bar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: Localify.get("login.bar_button_item.forgot"),
-            style: .plain,
-            target: self,
-            action: #selector(forgotTouchUpInside(_:)))
 
+        nameField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
         
         subviewSettings()
     }
     
-    // MARK: - Selector
-    @objc func forgotTouchUpInside(_ sender: UIBarButtonItem) {
-        // push view controller with segue
-        performSegue(withIdentifier: "showForgotPassword", sender: self)
-    }
-    
-    // MARK: - IBActions
-    @IBAction func signInTouchUpInside(_ sender: Any) {
-        if validateField() {
-            Alertify.displayAlert(
-                title: Localify.get("messages.success"),
-                message: Localify.get("messages.success.login"),
-                sender: self)
-        }
-    }
-    
+    // MARK: - IBAction
     @IBAction func registerTouchUpInside(_ sender: Any) {
-        // push view controller with navigation controller
-        let registerViewController = UIStoryboard(name: "Auth", bundle: nil)
-            .instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        navigationController?.pushViewController(registerViewController, animated: true)
+        if validateField() {
+            SVProgressHUD.showSuccess(withStatus: Localify.get("messages.success.register"))
+            SVProgressHUD.dismiss(withDelay: 1.0) {
+                // pop view controller from the stack
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     // MARK: - Functions
     private func subviewSettings() {
-        titleLabel.text = Localify.get("login.title")
-        subtitleLabel.text = Localify.get("login.subtitle")
-        emailField.placeholder = Localify.get("login.field.email.placeholder")
-        passwordField.placeholder = Localify.get("login.field.password.placeholder")
-        signInButton.setTitle(Localify.get("login.button.signin"), for: .normal)
-        registerButton.setTitle(Localify.get("login.button.register"), for: .normal)
+        titleLabel.text = Localify.get("register.title")
+        subtitleLabel.text = Localify.get("register.subtitle")
+        nameField.placeholder = Localify.get("register.field.name.placeholder")
+        emailField.placeholder = Localify.get("register.field.email.placeholder")
+        passwordField.placeholder = Localify.get("register.field.password.placeholder")
+        registerButton.setTitle(Localify.get("register.button.register"), for: .normal)
         
-        signInButton.setRoundedCorner(cornerRadius: 8.0)
         registerButton.setBorderViewColor(UIColor.systemBlue)
         registerButton.setRoundedCorner(cornerRadius: 8.0)
     }
     
     private func validateField() -> Bool {
         var errors = [String]()
+        
+        if nameField.text!.isEmpty {
+            errors.append(Localify.get("field_validation.invalid.message.name_empty"))
+        }
         
         if emailField.text!.isEmpty {
             errors.append(Localify.get("field_validation.invalid.message.email_empty"))
@@ -100,7 +86,7 @@ class LoginViewController: UIViewController {
 }
 
 // MARK: - UITextField Delegate
-extension LoginViewController: UITextFieldDelegate {
+extension RegisterViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextResponder = textField.superview?.viewWithTag(textField.tag + 1) {
             nextResponder.becomeFirstResponder()

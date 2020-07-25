@@ -32,6 +32,8 @@
 		240DE7C524C6EFC300FCA57B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DE7C424C6EFC300FCA57B /* LoginViewController.swift */; };
 		240DE7C824C6F02500FCA57B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 240DE7CA24C6F02500FCA57B /* Home.storyboard */; };
 		240DE7CF24C6F05300FCA57B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DE7CE24C6F05300FCA57B /* HomeViewController.swift */; };
+		24B5D9ED24CBCA31008E2AEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D9EC24CBCA31008E2AEB /* RegisterViewController.swift */; };
+		24B5D9EF24CBCA83008E2AEB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B5D9EE24CBCA83008E2AEB /* ForgotPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		240DE7C924C6F02500FCA57B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		240DE7CC24C6F02700FCA57B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Home.strings; sourceTree = "<group>"; };
 		240DE7CE24C6F05300FCA57B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		24B5D9EC24CBCA31008E2AEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		24B5D9EE24CBCA83008E2AEB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		2F592FB1E103BD944EEC8A41 /* Pods_workshop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workshop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5CAF5F09225B1AC50D4DBAC /* Pods-workshop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workshop.debug.xcconfig"; path = "Target Support Files/Pods-workshop/Pods-workshop.debug.xcconfig"; sourceTree = "<group>"; };
 		F8DE7C9A92088AADD8EC0ED4 /* Pods-workshop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workshop.release.xcconfig"; path = "Target Support Files/Pods-workshop/Pods-workshop.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				240DE7C424C6EFC300FCA57B /* LoginViewController.swift */,
+				24B5D9EC24CBCA31008E2AEB /* RegisterViewController.swift */,
+				24B5D9EE24CBCA83008E2AEB /* ForgotPasswordViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				240DE7AB24C6EDFE00FCA57B /* UIViewControllerExtensions.swift in Sources */,
 				240DE7B124C6EE8F00FCA57B /* Localify.swift in Sources */,
 				240DE7A924C6EDE700FCA57B /* UITextViewExtensions.swift in Sources */,
+				24B5D9ED24CBCA31008E2AEB /* RegisterViewController.swift in Sources */,
 				240DE7B724C6EEE000FCA57B /* Apify.swift in Sources */,
 				240DE7CF24C6F05300FCA57B /* HomeViewController.swift in Sources */,
 				240DE7A124C6ED7C00FCA57B /* StringExtensions.swift in Sources */,
@@ -354,6 +361,7 @@
 				240DE7B524C6EECF00FCA57B /* Storify.swift in Sources */,
 				240DE77B24C6E8EE00FCA57B /* AppDelegate.swift in Sources */,
 				240DE7C524C6EFC300FCA57B /* LoginViewController.swift in Sources */,
+				24B5D9EF24CBCA83008E2AEB /* ForgotPasswordViewController.swift in Sources */,
 				240DE7AD24C6EE1A00FCA57B /* UIViewExtensions.swift in Sources */,
 				240DE7A324C6ED9D00FCA57B /* UIColorExtensions.swift in Sources */,
 				240DE7B924C6EF2E00FCA57B /* CameraMediaPickerHelper.swift in Sources */,
