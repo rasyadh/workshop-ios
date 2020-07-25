@@ -10,21 +10,88 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // implement textField behaviour
+        emailField.delegate = self
+        passwordField.delegate = self
+        
+        subviewSettings()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - IBActions
+    @IBAction func signInTouchUpInside(_ sender: Any) {
+        if validateField() {
+            Alertify.displayAlert(
+                title: Localify.get("messages.success"),
+                message: Localify.get("messages.success.login"),
+                sender: self)
+        }
     }
-    */
+    
+    @IBAction func registerTouchUpInside(_ sender: Any) {
+    }
+    
+    // MARK: - Functions
+    private func subviewSettings() {
+        // get localify strings from Localizable.strings
+        titleLabel.text = Localify.get("login.title")
+        subtitleLabel.text = Localify.get("login.subtitle")
+        emailField.placeholder = Localify.get("login.field.email.placeholder")
+        passwordField.placeholder = Localify.get("login.field.password.placeholder")
+        signInButton.setTitle(Localify.get("login.button.signin"), for: .normal)
+        registerButton.setTitle(Localify.get("login.button.register"), for: .normal)
+        
+        signInButton.setRoundedCorner(cornerRadius: 8.0)
+        registerButton.setBorderViewColor(UIColor.systemBlue)
+        registerButton.setRoundedCorner(cornerRadius: 8.0)
+    }
+    
+    private func validateField() -> Bool {
+        var errors = [String]()
+        
+        if emailField.text!.isEmpty {
+            errors.append(Localify.get("field_validation.invalid.message.email_empty"))
+        } else if !emailField.text!.isValidEmail() {
+            errors.append(Localify.get("field_validation.invalid.message.email_invalid"))
+        }
+        
+        if passwordField.text!.isEmpty {
+            errors.append(Localify.get("field_validation.invalid.message.password_empty"))
+        } else if passwordField.text!.count < 6 {
+            errors.append(Localify.get("field_validation.invalid.message.password_length"))
+        }
+        
+        if errors.isEmpty {
+            return true
+        } else {
+            let message = errors.joined(separator: "\n")
+            Alertify.displayAlert(
+                title: Localify.get("field_validation.invalid.title"),
+                message: message,
+                sender: self)
+            return false
+        }
+    }
+}
 
+// MARK: - UITextField Delegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextResponder = textField.superview?.viewWithTag(textField.tag + 1) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
 }

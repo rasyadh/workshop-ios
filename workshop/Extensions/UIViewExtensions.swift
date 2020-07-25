@@ -43,4 +43,10 @@ extension UIView {
         self.layer.borderColor = UIColor.ntGray.cgColor
         self.layer.masksToBounds = true
     }
+    
+    func setBorderViewColor(_ color: UIColor) {
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = color.cgColor
+        self.layer.masksToBounds = true
+    }
 }
