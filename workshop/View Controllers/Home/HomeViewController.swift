@@ -33,6 +33,9 @@ class HomeViewController: UIViewController {
         
         // register xib file for cell table view
         tableView.register(
+            UINib(nibName: "HeaderMovieTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "HeaderMovieTableCell")
+        tableView.register(
             UINib(nibName: "MovieTableViewCell", bundle: nil),
             forCellReuseIdentifier: "MovieTableCell")
         tableView.dataSource = self
@@ -90,12 +93,36 @@ class HomeViewController: UIViewController {
 
 // MARK: - UITableView DataSource
 extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        switch section {
+        case 1:
+            return movies.count
+        default:
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return createMovieCell(indexPath)
+        switch indexPath.section {
+        case 1:
+            return createMovieCell(indexPath)
+        default:
+            return createHeaderMovieCell(indexPath)
+        }
+    }
+    
+    func createHeaderMovieCell(_ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "HeaderMovieTableCell", for: indexPath) as! HeaderMovieTableViewCell
+        
+        cell.titleHeader = "Popular"
+        cell.selectionStyle = .none
+        
+        return cell
     }
     
     func createMovieCell(_ indexPath: IndexPath) -> UITableViewCell {

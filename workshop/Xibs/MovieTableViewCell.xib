@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vkq-C5-hOu">
-                        <rect key="frame" x="16" y="0.0" width="343" height="224"/>
+                        <rect key="frame" x="24" y="0.0" width="327" height="224"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jO0-iZ-KAI">
                                 <rect key="frame" x="16" y="16" width="120" height="120"/>
@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-JX-Czr">
-                                <rect key="frame" x="148" y="24" width="179" height="19.5"/>
+                                <rect key="frame" x="148" y="24" width="163" height="19.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,10 +66,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Vkq-C5-hOu" secondAttribute="trailing" constant="16" id="Cfb-PP-AAK"/>
+                    <constraint firstAttribute="trailing" secondItem="Vkq-C5-hOu" secondAttribute="trailing" constant="24" id="Cfb-PP-AAK"/>
                     <constraint firstItem="Vkq-C5-hOu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EUW-Xm-pGZ"/>
                     <constraint firstAttribute="bottom" secondItem="Vkq-C5-hOu" secondAttribute="bottom" constant="16" id="rwf-Jl-bSS"/>
-                    <constraint firstItem="Vkq-C5-hOu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="z0I-mi-QDS"/>
+                    <constraint firstItem="Vkq-C5-hOu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="z0I-mi-QDS"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
