@@ -17,6 +17,9 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     
+    // MARK: - Variables
+    var email: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +48,10 @@ class ForgotPasswordViewController: UIViewController {
         
         forgotPasswordButton.setBorderViewColor(UIColor.systemBlue)
         forgotPasswordButton.setRoundedCorner(cornerRadius: 8.0)
+        
+        // set email to emailField if it's not nill
+        guard email != nil else { return }
+        emailField.text = email
     }
     
     private func validateField() -> Bool {

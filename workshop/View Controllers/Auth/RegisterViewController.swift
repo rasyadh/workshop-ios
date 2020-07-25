@@ -19,6 +19,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
+    // MARK: - Variables
+    var name: String!
+    var email: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +55,14 @@ class RegisterViewController: UIViewController {
         
         registerButton.setBorderViewColor(UIColor.systemBlue)
         registerButton.setRoundedCorner(cornerRadius: 8.0)
+        
+        // set name and email if it's not nill
+        if let name = self.name {
+            nameField.text = name
+        }
+        if let email = self.email {
+            emailField.text = email
+        }
     }
     
     private func validateField() -> Bool {

@@ -34,6 +34,14 @@ class LoginViewController: UIViewController {
         subviewSettings()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // pass data with segue
+        if segue.identifier == "showForgotPassword" {
+            let forgotPasswordViewController = segue.destination as! ForgotPasswordViewController
+            forgotPasswordViewController.email = "mobile@twiscode.com"
+        }
+    }
+    
     // MARK: - Selector
     @objc func forgotTouchUpInside(_ sender: UIBarButtonItem) {
         // push view controller with segue
@@ -54,6 +62,9 @@ class LoginViewController: UIViewController {
         // push view controller with navigation controller
         let registerViewController = UIStoryboard(name: "Auth", bundle: nil)
             .instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        // pass data with navigation controller
+        registerViewController.name = "Mobile iOS"
+        registerViewController.email = "mobile@twiscoder.com"
         navigationController?.pushViewController(registerViewController, animated: true)
     }
     
